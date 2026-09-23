@@ -3,7 +3,7 @@
 Fuente de verdad. Inicio: 2026-09-24. Cada hito se verifica antes del siguiente.
 
 - [x] M0 Reconocimiento y rama. Repositorio vacío, main sin commits, origin git@github.com:GonzaloBarcelo/cervantes.git. Rama feat/cervantes-vivo creada; estado inicial limpio.
-- [ ] M1 Contratos, configuración, arranque y HTTP 200.
+- [x] M1 Contratos, configuración, arranque y HTTP 200. Evidencia: reports/m1.txt; source env.sh && ./run.sh instala, compila y arranca (puerto requiere permiso del sandbox).
 - [ ] M2 Proveedores mock, contratos y conversación WebSocket.
 - [ ] M3 Visemas españoles y retrato animado; capturas de boca.
 - [ ] M4 Busto 3D con animación; capturas revisadas.
@@ -13,4 +13,4 @@ Fuente de verdad. Inicio: 2026-09-24. Cada hito se verifica antes del siguiente.
 - [ ] M8 Interfaces, cambio en vivo y galería de evidencias.
 - [ ] M9 Documentación, errores, smoke real y auditoría.
 
-Próxima acción: construir y arrancar el esqueleto modular.
+Próxima acción: implementar mock y comprobar conversación WebSocket.

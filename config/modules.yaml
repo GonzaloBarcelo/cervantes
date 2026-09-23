@@ -1,0 +1,13 @@
+llm_provider: anthropic
+llm_model: claude-haiku-4-5-20251001
+tts_provider: elevenlabs
+tts_model: eleven_flash_v2_5
+tts_voice: ''
+avatar_module: portrait2d
+stt_module: browser
+persona: personas/cervantes.yaml
+host: 127.0.0.1
+port: 8000
+sample_rate: 24000
+max_history: 20
+max_input_chars: 2000
