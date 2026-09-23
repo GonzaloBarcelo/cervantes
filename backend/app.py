@@ -1,6 +1,5 @@
 import asyncio
 import contextlib
-import os
 from urllib.parse import urlparse
 from fastapi import FastAPI, WebSocket, WebSocketDisconnect
 from fastapi.staticfiles import StaticFiles
@@ -14,11 +13,7 @@ from .registry import registry
 app = FastAPI(title='Cervantes Vivo')
 
 def module_status(settings):
-    return {
-        'llm': [{'name': n, 'status': 'mock' if n == 'mock' else 'active' if os.getenv('ANTHROPIC_API_KEY') else 'missing_key'} for n in registry.factories['llm']],
-        'tts': [{'name': n, 'status': 'mock' if n == 'mock' else 'active' if os.getenv('ELEVENLABS_API_KEY') and settings.tts_voice else 'missing_key'} for n in registry.factories['tts']],
-        'stt': [{'name': n, 'status': 'mock' if n == 'mock' else 'active'} for n in registry.factories['stt']],
-    }
+    return {kind: [{'name': name, 'status': registry.status(kind, name, settings)} for name in factories] for kind, factories in registry.factories.items()}
 
 @app.get('/api/health')
 def health():

@@ -1,0 +1,6 @@
+M8 — Chromium / Playwright
+9 pruebas aprobadas en gallery.spec.ts.
+Matriz: / y /lab × portrait2d y bust3d × escritorio 1440 px y móvil 390 px.
+Comprobados: sin desbordamiento horizontal, sin errores JavaScript, audio e interrupción.
+Comprobados: cambios de voz/modelo/proveedor, errores por claves ausentes y recuperación a mock.
+Capturas de línea de tiempo adicional para cada rostro y tamaño en /lab.

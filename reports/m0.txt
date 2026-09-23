@@ -1,0 +1,6 @@
+M0 — reconocimiento, 24-09-2026
+Directorio: repositorio Cervantes ya existente. No se ejecutó git init.
+Estado inicial: limpio, rama main sin commits, sin archivos de proyecto.
+Origen: git@github.com:GonzaloBarcelo/cervantes.git
+Rama de trabajo: feat/cervantes-vivo.
+Plan registrado en PROGRESS.md; primer commit 89776a5.

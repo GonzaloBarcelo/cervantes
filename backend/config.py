@@ -28,7 +28,7 @@ class Settings(BaseModel):
             if field.upper() in os.environ:
                 data[field] = os.environ[field.upper()]
         if not data.get('tts_voice'):
-            data['tts_voice'] = os.getenv('ELEVENLABS_VOICE_ID', '')
+            data['tts_voice'] = os.getenv('ELEVENLABS_VOICE_ID', '') or yaml.safe_load((ROOT / data['persona']).read_text()).get('voice', '')
         explicit_mock = os.getenv('MOCK') == '1'
         auto_mock = os.getenv('MOCK') != '0' and not os.getenv('ANTHROPIC_API_KEY') and not os.getenv('ELEVENLABS_API_KEY')
         if explicit_mock or auto_mock:

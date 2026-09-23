@@ -1,0 +1,36 @@
+{
+  "0": [],
+  "1": [],
+  "2": [],
+  "3": [
+    "m3-mouth-O.png",
+    "m3-mouth-PP.png",
+    "m3-mouth-aa.png",
+    "m3-portrait-idle.png"
+  ],
+  "4": [
+    "m4-bust-desktop.png",
+    "m4-bust-speaking.png"
+  ],
+  "5": [],
+  "6": [],
+  "7": [
+    "m7-flow-speaking.png",
+    "m7-permission-error.png"
+  ],
+  "8": [
+    "m8-lab-bust3d-desktop-timeline.png",
+    "m8-lab-bust3d-desktop.png",
+    "m8-lab-bust3d-mobile-timeline.png",
+    "m8-lab-bust3d-mobile.png",
+    "m8-lab-portrait2d-desktop-timeline.png",
+    "m8-lab-portrait2d-desktop.png",
+    "m8-lab-portrait2d-mobile-timeline.png",
+    "m8-lab-portrait2d-mobile.png",
+    "m8-salon-bust3d-desktop.png",
+    "m8-salon-bust3d-mobile.png",
+    "m8-salon-portrait2d-desktop.png",
+    "m8-salon-portrait2d-mobile.png"
+  ],
+  "9": []
+}
