@@ -1,0 +1,12 @@
+env.sh
+.venv/
+.bootstrap/
+.runtime/
+.cache/
+node_modules/
+frontend/dist/
+__pycache__/
+.pytest_cache/
+*.pyc
+.DS_Store
+test-results/
