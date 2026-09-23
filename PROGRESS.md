@@ -8,7 +8,7 @@ Fuente de verdad. Inicio: 2026-09-24. Cada hito se verifica antes del siguiente.
 - [x] M3 Visemas españoles y retrato animado. reports/m3-unit.txt: 6 pruebas; Playwright 1/1; m3-portrait-idle.png y m3-mouth-{aa,O,PP}.png revisadas visualmente.
 - [x] M4 Busto 3D procedural con morph targets ARKit, parpadeo, respiración y mirada. Playwright bust.spec.ts 1/1; reports/m4-bust-desktop.png revisada visualmente; cambio de vuelta a retrato verificado.
 - [x] M5 Anthropic streaming con cliente inyectable y persona española. reports/m5.txt: 14 pruebas aprobadas, parser comprobado con cortes de 1, 2, 7 y 1000 caracteres.
-- [ ] M6 ElevenLabs con tiempos; transporte simulado.
+- [x] M6 ElevenLabs streaming PCM con alineación y cliente HTTP inyectable. reports/m6.txt: 20 pruebas; JSON fragmentado, tiempos por petición/chunk, error HTTP y claves ausentes verificados.
 - [ ] M7 Flujo de voz, interrupción y seguimiento opcional; E2E.
 - [ ] M8 Interfaces, cambio en vivo y galería de evidencias.
 - [ ] M9 Documentación, errores, smoke real y auditoría.

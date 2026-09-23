@@ -24,3 +24,5 @@ registry.register('stt', 'mock', lambda s: MockSTT())
 registry.register('stt', 'browser', lambda s: BrowserSTT())
 from .providers.anthropic import AnthropicLLM
 registry.register('llm', 'anthropic', AnthropicLLM)
+from .providers.elevenlabs import ElevenLabsTTS
+registry.register('tts', 'elevenlabs', ElevenLabsTTS)
