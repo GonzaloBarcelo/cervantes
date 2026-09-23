@@ -15,3 +15,10 @@ class Registry:
         return self.factories[kind][name](settings)
 
 registry = Registry()
+
+from .providers.mock import MockLLM, MockTTS, MockSTT
+from .providers.browser import BrowserSTT
+registry.register('llm', 'mock', lambda s: MockLLM())
+registry.register('tts', 'mock', lambda s: MockTTS(s.sample_rate, s.tts_voice))
+registry.register('stt', 'mock', lambda s: MockSTT())
+registry.register('stt', 'browser', lambda s: BrowserSTT())
