@@ -22,3 +22,5 @@ registry.register('llm', 'mock', lambda s: MockLLM())
 registry.register('tts', 'mock', lambda s: MockTTS(s.sample_rate, s.tts_voice))
 registry.register('stt', 'mock', lambda s: MockSTT())
 registry.register('stt', 'browser', lambda s: BrowserSTT())
+from .providers.anthropic import AnthropicLLM
+registry.register('llm', 'anthropic', AnthropicLLM)
