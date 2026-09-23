@@ -1,2 +1,2 @@
 import { defineConfig } from 'vite';
-export default defineConfig({ server: { proxy: { '/api': 'http://127.0.0.1:8000', '/ws': { target: 'ws://127.0.0.1:8000', ws: true } } } });
+export default defineConfig({ build: { rollupOptions: { output: { manualChunks: { three: ['three'] } } } }, server: { proxy: { '/api': 'http://127.0.0.1:8000', '/ws': { target: 'ws://127.0.0.1:8000', ws: true } } } });

@@ -1,3 +1,4 @@
+import { es as t } from '../i18n';
 import { AnimatedAvatar, type Frame } from './base';
 
 // Original vector painting. Separate face, eyes and mouth make animation rig-independent.
@@ -8,7 +9,7 @@ export class Portrait2D extends AnimatedAvatar {
   private pupils!: SVGGElement;
   private brow!: SVGGElement;
   protected create() {
-    this.container.innerHTML = `<svg class="portrait" viewBox="0 0 600 680" role="img" aria-label="Retrato animado de Miguel de Cervantes">
+    this.container.innerHTML = `<svg class="portrait" viewBox="0 0 600 680" role="img" aria-label="${t.portraitAria}">
     <defs>
       <radialGradient id="back"><stop stop-color="#806142"/><stop offset=".58" stop-color="#403d2c"/><stop offset="1" stop-color="#20281f"/></radialGradient>
       <linearGradient id="skin" x1="0" x2="1" y2=".3"><stop stop-color="#edc38e"/><stop offset=".45" stop-color="#c39a69"/><stop offset="1" stop-color="#735a3d"/></linearGradient>

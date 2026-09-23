@@ -1,4 +1,5 @@
 export const es = {
+  artTitle:'RETRATO VIVO · I', live:'ENCUENTRO EN DIRECTO', established:'EST. MDCV', portraitAria:'Retrato animado de Miguel de Cervantes', bustAria:'Busto 3D animado de Cervantes',
   brand:'Cervantes', brandAccent:'Vivo', edition:'UN ENCUENTRO A TRAVÉS DEL TIEMPO', salon:'El encuentro', lab:'Laboratorio', evidence:'Cuaderno de pruebas',
   eyebrow:'ALCALÁ DE HENARES · 1547 — MADRID · 1616', title:'Hay conversaciones', titleItalic:'que no conocen siglos.',
   intro:'Tomad asiento. Miguel de Cervantes tiene una historia que contar y, sobre todo, ganas de escuchar la vuestra.',

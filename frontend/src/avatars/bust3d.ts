@@ -1,3 +1,4 @@
+import { es as t } from '../i18n';
 import * as THREE from 'three';
 import { AnimatedAvatar, type Frame } from './base';
 
@@ -30,7 +31,7 @@ export class Bust3D extends AnimatedAvatar {
   protected create() {
     this.renderer=new THREE.WebGLRenderer({antialias:true,alpha:true});this.renderer.setPixelRatio(Math.min(devicePixelRatio,2));this.renderer.setClearColor(0x283024,1);this.renderer.outputColorSpace=THREE.SRGBColorSpace;this.renderer.toneMapping=THREE.ACESFilmicToneMapping;this.renderer.toneMappingExposure=1.25;
     this.container.replaceChildren(this.renderer.domElement);
-    this.renderer.domElement.setAttribute('aria-label','Busto 3D animado de Cervantes');
+    this.renderer.domElement.setAttribute('aria-label',t.bustAria);
     this.camera.position.set(0,.35,5.9);this.camera.lookAt(0,.2,0);
     this.scene.add(new THREE.HemisphereLight(0xf4e5c4,0x25322b,2));
     const key=new THREE.DirectionalLight(0xffd5a0,4);key.position.set(-3,4,4);this.scene.add(key);
