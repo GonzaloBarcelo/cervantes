@@ -1,0 +1,17 @@
+Resolved 35 packages in 17ms
+Checked 33 packages in 7ms
+
+> cervantes-vivo-ui@0.1.0 build
+> tsc --noEmit && vite build
+
+vite v7.3.6 building client environment for production...
+transforming...
+✓ 19 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/index.html                          0.52 kB │ gzip:   0.35 kB
+dist/assets/index-Cp1FcOoB.css          13.41 kB │ gzip:   4.22 kB
+dist/assets/index-CGKDu394.js           35.33 kB │ gzip:  14.12 kB
+dist/assets/vision_bundle-Bk4VIwNi.js  135.99 kB │ gzip:  40.62 kB
+dist/assets/three-CR5wRL7L.js          474.09 kB │ gzip: 118.64 kB
+✓ built in 594ms

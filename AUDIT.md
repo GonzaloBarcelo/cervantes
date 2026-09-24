@@ -1,4 +1,4 @@
-<!doctype html><html lang="es"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>M9 · Documentación y auditoría</title><style>body{margin:0;background:#181e18;color:#e5dcc7;font:15px/1.6 system-ui,sans-serif}main{max-width:1200px;margin:auto;padding:50px 6%}h1,h2{font-family:Georgia,serif;font-weight:400}h1{font-size:44px;color:#dcc394}h2{margin-top:40px}a{color:#d7b878}p{color:#aab29e}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px}figure{margin:0;padding:10px;border:1px solid #a8975b44;background:#252c22}img{display:block;width:100%;height:270px;object-fit:cover;object-position:top}figcaption{font-size:11px;padding:9px 4px}pre{white-space:pre-wrap;overflow-wrap:anywhere;padding:24px;background:#222a20;border:1px solid #a8975b33;font-size:12px}small{color:#98a28c}.badge{border:1px solid #80926755;padding:6px 12px;border-radius:25px;display:inline-block;font-size:11px}.nav{display:flex;gap:20px;flex-wrap:wrap;margin:22px 0}</style><main><small>CERVANTES VIVO · EVIDENCIA DOCUMENTAL</small><h1>M9 · Documentación y auditoría</h1><p>Resumen documental del hito; no es una reconstrucción de una pantalla anterior.</p><pre># Auditoría de Cervantes Vivo — 24-09-2026
+# Auditoría de Cervantes Vivo — 24-09-2026
 
 La misión adjunta se ha releído íntegramente. También se aplica la modificación posterior del usuario: pantalla principal con solo rostro y botón. Los requisitos originales de textos, navegación, subtítulos y escena decorada en / quedan sustituidos por esa instrucción; se mantienen las herramientas en /lab.
 
@@ -14,7 +14,7 @@ El retrato 2D original es predeterminado. Busto 3D procedural con subconjunto AR
 |---|---|
 | Repositorio respetado, sin git init | Repositorio inicial vacío; reports/m0.txt; rama feat/cervantes-vivo; commits por hitos |
 | Plan y progreso recuperable | PROGRESS.md actualizado por cada hito; decisiones y fuentes separadas |
-| Arranque único Python 3.12 / FastAPI / Vite TS | source env.sh &amp;&amp; ./run.sh ejecutado; reports/m1.txt; scripts/test.sh vuelve a compilar |
+| Arranque único Python 3.12 / FastAPI / Vite TS | source env.sh && ./run.sh ejecutado; reports/m1.txt; scripts/test.sh vuelve a compilar |
 | Protocols, Pydantic y registro | backend/contracts.py, registry.py; contratos de todas las implementaciones |
 | Config YAML y sobrescrituras | Settings.load; tests/test_pipeline.py; selecciones en vivo por conexión |
 | Persona española, límites de citas e identidad IA | personas/cervantes.yaml; E2E pregunta explícita sobre IA |
@@ -25,7 +25,7 @@ El retrato 2D original es predeterminado. Busto 3D procedural con subconjunto AR
 | Dos caras y comportamiento vivo | portrait2d / bust3d; mismo contrato; parpadeo, respiración, mirada, energía y emociones |
 | Cámara opcional y fallback | MediaPipe solo tras pulsación, liberación de pistas; error de permisos E2E; hardware real pendiente |
 | Primera frase sin esperar respuesta completa | test_first_sentence_audio_precedes_llm_completion fuerza al LLM a esperar el primer audio |
-| Target 2,5 s | Prueba mock de primer audio &lt;2500 ms; latencias visibles; servicios reales pendientes |
+| Target 2,5 s | Prueba mock de primer audio <2500 ms; latencias visibles; servicios reales pendientes |
 | Estados e interrupción | Pruebas WebSocket y Playwright; audio y tareas cancelados, eventos tardíos por número de turno |
 | Interfaz mínima y responsive | / contiene solo rostro y un botón; minimal.spec.ts comprueba un único control, sin textos/navegación/formularios visibles. Estados accesibles y cambio de icono. /lab conserva i18n.ts, subtítulos y diagnóstico; 1440/390 px |
 | Laboratorio y cambios en vivo | gallery.spec.ts; voces warm/bright y campos modelo/voz; estado de todos los módulos |
@@ -59,4 +59,3 @@ No hay aprobaciones funcionales pendientes. Las limitaciones de servicios reales
 ## Primera comprobación recomendada
 
 Abrir http://127.0.0.1:8000 y pulsar el único botón: escuchar los tonos mock y observar labios; pulsarlo otra vez detiene la respuesta. Después, rellenar localmente env.sh y ejecutar source env.sh, MOCK=0 ./run.sh y scripts/smoke_live.sh. Usar /lab para seleccionar voz/modelo, ver errores y contrastar latencias. Las claves no deben pegarse en conversaciones ni commits.
-</pre><p><a href="../index.html">Volver a la galería</a></p></main></html>

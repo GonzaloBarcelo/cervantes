@@ -1,7 +1,13 @@
 {
-  "0": [],
-  "1": [],
-  "2": [],
+  "0": [
+    "m0-documentary.png"
+  ],
+  "1": [
+    "m1-documentary.png"
+  ],
+  "2": [
+    "m2-documentary.png"
+  ],
   "3": [
     "m3-mouth-O.png",
     "m3-mouth-PP.png",
@@ -12,13 +18,18 @@
     "m4-bust-desktop.png",
     "m4-bust-speaking.png"
   ],
-  "5": [],
-  "6": [],
+  "5": [
+    "m5-documentary.png"
+  ],
+  "6": [
+    "m6-documentary.png"
+  ],
   "7": [
     "m7-flow-speaking.png",
     "m7-permission-error.png"
   ],
   "8": [
+    "m8-gallery.png",
     "m8-lab-bust3d-desktop-timeline.png",
     "m8-lab-bust3d-desktop.png",
     "m8-lab-bust3d-mobile-timeline.png",
@@ -32,5 +43,9 @@
     "m8-salon-portrait2d-desktop.png",
     "m8-salon-portrait2d-mobile.png"
   ],
-  "9": []
+  "9": [
+    "m9-documentary.png",
+    "m9-minimal-1440.png",
+    "m9-minimal-390.png"
+  ]
 }

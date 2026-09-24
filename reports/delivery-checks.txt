@@ -1,0 +1,4 @@
+OK: 123 archivos de entrega revisados sin patrones de claves.
+OK: env.sh ignorado, no versionado e idéntico al ejemplo con tres valores vacíos.
+OK: galería y matriz de capturas / y /lab, ambas caras, escritorio y móvil.
+OK: ejemplo mínimo LLM de ADDING_MODULES.md ejecutado.
