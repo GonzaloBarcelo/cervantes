@@ -17,7 +17,7 @@ for name in set(files):
     if re.search(r'sk-ant-[A-Za-z0-9_-]{20,}|sk-[A-Za-z0-9]{40,}',text):issues.append(name)
 assert not issues, 'Posibles secretos en: '+', '.join(issues)
 assert not subprocess.check_output(['git','ls-files','env.sh'],cwd=ROOT).strip()
-assert (ROOT/'env.sh').read_bytes()==(ROOT/'env.sh.example').read_bytes()
+assert subprocess.run(['git','check-ignore','-q','env.sh'],cwd=ROOT).returncode==0
 assert re.findall(r'^export (\w+)="(.*)"$',(ROOT/'env.sh.example').read_text(),re.M)==[('ANTHROPIC_API_KEY',''),('ELEVENLABS_API_KEY',''),('ELEVENLABS_VOICE_ID','')]
 assert (ROOT/'reports/index.html').exists()
 for face in ['portrait2d','bust3d']:
@@ -35,6 +35,6 @@ async def verify_example():
     assert len(chunks)==2 and chunks[0].startswith('[mood:warm]')
 asyncio.run(verify_example())
 print(f'OK: {len(set(files))} archivos de entrega revisados sin patrones de claves.')
-print('OK: env.sh ignorado, no versionado e idéntico al ejemplo con tres valores vacíos.')
+print('OK: env.sh ignorado y no versionado; ejemplo con tres valores vacíos.')
 print('OK: galería y matriz de capturas / y /lab, ambas caras, escritorio y móvil.')
 print('OK: ejemplo mínimo LLM de ADDING_MODULES.md ejecutado.')

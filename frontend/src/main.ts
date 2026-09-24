@@ -9,6 +9,7 @@ import { sttModules } from './stt/registry';
 import { HeadTracking } from './tracking';
 
 const lab = location.pathname === '/lab';
+if(new URLSearchParams(location.search).get('reset')==='1')sessionStorage.removeItem('cervantes-modules');
 document.querySelector('#app')!.innerHTML = renderApp(lab);
 document.body.classList.toggle('minimal-mode', !lab);
 const $ = <T extends HTMLElement = HTMLElement>(id: string) => document.getElementById(id) as T;

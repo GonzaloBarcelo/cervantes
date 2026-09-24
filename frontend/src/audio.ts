@@ -23,7 +23,7 @@ export class AudioPlayer {
     source.start(start); this.sources.add(source);
     source.onended=()=>{this.sources.delete(source);source.disconnect();};
     if(packet.sequence!==this.sequence){this.sequence=packet.sequence;this.charOffset=0;}
-    const charOffset=this.charOffset;this.charOffset+=packet.alignment.characters.length;
+    const charOffset=packet.alignment.offset??this.charOffset;this.charOffset=charOffset+packet.alignment.characters.length;
     return {charOffset,clock:this.context,start,duration:buffer.duration,samples,sampleRate:packet.sample_rate,visemes:packet.visemes,alignment:packet.alignment,mood:packet.mood,text:packet.text};
   }
   get pending() { return this.sources.size>0; }

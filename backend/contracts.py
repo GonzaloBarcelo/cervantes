@@ -16,6 +16,7 @@ class Persona(BaseModel):
     settings: dict[str, str] = Field(default_factory=dict)
 
 class Alignment(BaseModel):
+    offset: int = Field(default=0, ge=0)
     characters: list[str]
     starts: list[float]
     ends: list[float]

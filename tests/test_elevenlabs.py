@@ -47,3 +47,14 @@ async def test_missing_key(monkeypatch):
     monkeypatch.delenv('ELEVENLABS_API_KEY',raising=False)
     with pytest.raises(ValueError,match='Falta'):
         _=[c async for c in ElevenLabsTTS(Settings()).stream('Hola')]
+
+async def test_alignment_ahead_of_audio_is_retained_across_empty_packets():
+    pcm=base64.b64encode(b'\x01\x00'*2400).decode()
+    packets=[{'audio_base64':pcm,'alignment':{'characters':['a','o'],'character_start_times_seconds':[0,.15],'character_end_times_seconds':[.15,.3]}}, {'audio_base64':pcm,'alignment':None}, {'audio_base64':pcm,'alignment':None}]
+    content='\n'.join(json.dumps(p) for p in packets).encode()
+    async with httpx.AsyncClient(transport=httpx.MockTransport(lambda r:httpx.Response(200,stream=Chunks(content)))) as client:
+        chunks=[c async for c in ElevenLabsTTS(Settings(tts_voice='fixture'),client).stream('ao')]
+    assert [c.alignment.characters for c in chunks]==[['a'],['a','o'],['o']]
+    assert [c.alignment.offset for c in chunks]==[0,0,1]
+    assert all(0<=t<=.1+1e-6 for c in chunks for t in c.alignment.ends)
+    assert chunks[-1].alignment.ends[0]==pytest.approx(.1)

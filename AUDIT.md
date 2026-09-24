@@ -63,3 +63,9 @@ Abrir http://127.0.0.1:8000 y pulsar el único botón: escuchar los tonos mock y
 ## Publicación y estado final
 
 Rama feat/cervantes-vivo publicada en origin sin force push. Commit de implementación/documentación auditado: 2b1efca; el commit posterior solo registra esta evidencia. Arranque final con source env.sh && ./run.sh confirmado: servidor en 127.0.0.1:8000, GET /api/health HTTP 200, módulos mock activos y proveedores reales marcados como missing_key. Árbol limpio tras los commits.
+
+## Validación real posterior con claves (24-09-2026)
+
+Esta sección actualiza la limitación de credenciales de la auditoría inicial. Se ha comprobado satisfactoriamente Claude + ElevenLabs con la voz George: smoke real de 101 fragmentos (primer audio 1300,6 ms) y conversación real por WebSocket de 11 fragmentos con 11 alineaciones utilizables (primer audio 1153,9 ms). Se corrigió el reparto de marcas anticipadas entre paquetes PCM. Validación de la corrección: 27 pytest, compilación TypeScript/Vite y prueba de contrato de todos los módulos frontend aprobados.
+
+Gabo sigue bloqueada por HTTP 402 / paid_plan_required, comprobado también tras añadirla a una colección. La voz de env.sh se conserva; la voz de demostración se sobreescribe solo en el proceso en ejecución. No se han cambiado la suscripción ni los secretos. La evaluación perceptiva por el usuario y el micrófono/cámara físicos siguen pendientes.

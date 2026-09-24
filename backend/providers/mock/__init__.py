@@ -39,7 +39,7 @@ class MockTTS:
                     audio.extend(struct.pack('<h', sample))
             await asyncio.sleep(0.006)
             yield AudioChunk(pcm=bytes(audio), sample_rate=self.sample_rate,
-                alignment=Alignment(characters=chars, starts=[i * seconds for i in range(len(chars))], ends=[(i + 1) * seconds for i in range(len(chars))]))
+                alignment=Alignment(offset=offset, characters=chars, starts=[i * seconds for i in range(len(chars))], ends=[(i + 1) * seconds for i in range(len(chars))]))
 
 class MockSTT:
     async def transcribe(self, payload: str, language: str = 'es-ES') -> str:

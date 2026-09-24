@@ -21,6 +21,8 @@ class ElevenLabsTTS:
         rate = self.settings.sample_rate
         endpoint = f'https://api.elevenlabs.io/v1/text-to-speech/{quote(voice, safe="")}/stream/with-timestamps'
         elapsed = 0.0
+        pending = []
+        character_offset = 0
         try:
             async with client.stream('POST', endpoint, headers={'xi-api-key': key},
                     params={'output_format': f'pcm_{rate}'},
@@ -42,13 +44,24 @@ class ElevenLabsTTS:
                     raw = data.get('normalized_alignment') or data.get('alignment') or {}
                     starts = raw.get('character_start_times_seconds', [])
                     ends = raw.get('character_end_times_seconds', [])
-                    # HTTP timestamps normally refer to the request. Also accept
-                    # chunk-local timestamps when an upstream adapter resets them.
-                    offset = elapsed if starts and starts[0] >= elapsed - .025 else 0
-                    alignment = Alignment(characters=raw.get('characters', []),
-                        starts=[max(0, s-offset) for s in starts], ends=[max(0, e-offset) for e in ends])
+                    # Alignment can arrive ahead of audio and be omitted on
+                    # subsequent packets. Retain future cues and split intervals
+                    # on PCM boundaries without losing their text positions.
+                    origin = 0 if starts and starts[0] >= elapsed - .025 else elapsed
+                    for char, start, end in zip(raw.get('characters', []), starts, ends):
+                        pending.append((char, start + origin, end + origin, character_offset))
+                        character_offset += 1
+                    duration = len(pcm) / 2 / rate
+                    boundary = elapsed + duration
+                    current = [cue for cue in pending if cue[1] < boundary - 1e-6 and cue[2] > elapsed + 1e-6]
+                    alignment = Alignment(
+                        offset=current[0][3] if current else character_offset,
+                        characters=[cue[0] for cue in current],
+                        starts=[max(0, cue[1] - elapsed) for cue in current],
+                        ends=[min(duration, cue[2] - elapsed) for cue in current])
                     yield AudioChunk(pcm=pcm, sample_rate=rate, alignment=alignment)
-                    elapsed += len(pcm) / 2 / rate
+                    pending = [cue for cue in pending if cue[2] > boundary + 1e-6]
+                    elapsed = boundary
         finally:
             if self.client is None:
                 await client.aclose()

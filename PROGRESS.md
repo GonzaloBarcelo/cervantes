@@ -14,3 +14,12 @@ Fuente de verdad. Inicio: 2026-09-24. Cada hito se verifica antes del siguiente.
 - [x] M9 Documentación y auditoría completas. Verificación final: 26 pytest + 26 Playwright aprobadas; 29 capturas. Minimalismo solicitado verificado en escritorio/móvil. reports/delivery-checks.txt confirma env vacío/ignorado y ejemplo ejecutado; smoke sin claves sale 2 sin llamadas. AUDIT.md detalla aceptación condicionada a prueba real con credenciales.
 
 Próxima acción del usuario: probar el botón en localhost; validar voz, micrófono/cámara y latencia reales con sus credenciales mediante scripts/smoke_live.sh. Entrega publicada en origin/feat/cervantes-vivo; servidor final disponible en localhost:8000 y HTTP 200 comprobado.
+
+## Validación con credenciales del usuario (24-09-2026)
+
+- Claves cargadas desde env.sh sin mostrarlas; servidor reiniciado con Anthropic, ElevenLabs y STT browser reales.
+- Gabo devolvió HTTP 402 / paid_plan_required. Se volvió a comprobar tras añadirla el usuario a una colección; la restricción continúa.
+- La ejecución actual utiliza temporalmente George mediante TTS_VOICE; env.sh conserva la voz elegida por el usuario y no se ha modificado.
+- Smoke real aprobado: 101 paquetes de audio, primer audio 1300,6 ms. WebSocket real adicional aprobado: 11/11 paquetes con alineación, primer audio 1153,9 ms.
+- Se corrigió la alineación anticipada de ElevenLabs: retención y recorte por fragmento PCM, con offset de caracteres para subtítulos. 27 pruebas Python aprobadas, compilación TypeScript/Vite y contrato frontend aprobados.
+- Prueba lista en http://127.0.0.1:8000/?reset=1. El parámetro descarta selecciones mock antiguas del laboratorio en esa sesión. El control de navegador del entorno no está disponible; se entrega el enlace para abrirlo manualmente.

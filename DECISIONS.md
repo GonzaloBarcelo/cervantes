@@ -14,3 +14,8 @@
 - A petición explícita se configura el Codex local con approval_policy=never y sandbox_mode=danger-full-access. La configuración de permisos es personal, no forma parte del repositorio. El turno activo conserva su política de ejecución; la configuración persistente no se interpreta como autorización para saltársela.
 
 - Para mantener una comparación histórica sin falsear capturas, las fichas M0/M1/M2/M5/M6/M9 son evidencias documentales claramente etiquetadas; las capturas de aplicación se regeneran con la interfaz vigente.
+
+## Primera ejecución real
+
+- ElevenLabs devolvió 402 paid_plan_required para Gabo, incluso después de que el usuario la añadiese a una colección. Para hacer accesible la prueba se usa George, incluida entre las voces disponibles de la cuenta, únicamente mediante TTS_VOICE en el proceso en ejecución. No se modifica env.sh ni la suscripción.
+- La API envía alineaciones anticipadas que abarcan varios fragmentos PCM y omite alignment en fragmentos posteriores. El adaptador conserva esos intervalos, los recorta a cada fragmento y transmite el índice original del carácter. El smoke admite fragmentos sin visemas (silencios), pero exige audio y alguna alineación en el conjunto.
