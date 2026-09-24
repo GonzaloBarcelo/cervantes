@@ -20,6 +20,7 @@ export const es = {
   sttLatency:'Reconocimiento', llmLatency:'Primer texto', ttsLatency:'Primer audio TTS', totalLatency:'Generación total', firstAudio:'Hasta primer audio',
   mood:'Emoción', viseme:'Visema', idleTimeline:'Hablad para ver la voz, los visemas y las emociones.',
   self:'Vos', character:'Cervantes', networkError:'No se pudo conectar. Comprobad que el servidor sigue en marcha y recargad la página.',
+  invalidRequest:'La petición no es válida. Usad un mensaje de hasta 2000 caracteres o revisad los módulos.', providerError:'No ha sido posible completar la respuesta. Revisad las claves, la voz y la conexión, o elegid los módulos simulados.',
   audioError:'El navegador no pudo reproducir el audio. Pulsad de nuevo para activar el sonido.',
   micUnsupported:'Este navegador no admite reconocimiento de voz. Probad Chrome o escribid vuestra pregunta.',
   micDenied:'No se ha permitido el micrófono. Podéis habilitarlo en el navegador o escribir.', micError:'No se pudo reconocer la voz. Intentadlo de nuevo o escribid.',

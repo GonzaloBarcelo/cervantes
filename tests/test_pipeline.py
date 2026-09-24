@@ -67,3 +67,11 @@ def test_settings_env(monkeypatch):
     monkeypatch.setenv('MOCK','0');monkeypatch.setenv('LLM_PROVIDER','mock');monkeypatch.setenv('AVATAR_MODULE','bust3d')
     assert Settings.load().llm_provider=='mock'
     assert Settings.load().avatar_module=='bust3d'
+
+def test_module_registry_metadata_is_extensible():
+    from backend.registry import Registry
+    new=Registry()
+    new.register('llm','local',lambda s:object(),mock=True)
+    new.register('tts','local',lambda s:object())
+    assert new.status('llm','local',Settings())=='mock'
+    assert new.status('tts','local',Settings())=='active'

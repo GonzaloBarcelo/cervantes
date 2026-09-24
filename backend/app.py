@@ -50,7 +50,7 @@ async def websocket(ws: WebSocket):
             raise
         except Exception as error:
             # Never send exception bodies: remote API messages may contain secrets.
-            await send({'type': 'error', 'message': 'No ha sido posible completar la respuesta. Revisad las claves, la voz y la conexión, o elegid los módulos simulados.', 'code': type(error).__name__})
+            await send({'type': 'error', 'message': 'No ha sido posible completar la respuesta. Revisad las claves, la voz y la conexión, o elegid los módulos simulados.', 'code': 'provider_error', 'error_type': type(error).__name__})
 
     await ws.send_json({'type': 'ready', 'settings': settings.model_dump(), 'modules': module_status(settings)})
     try:
@@ -80,7 +80,7 @@ async def websocket(ws: WebSocket):
                 else:
                     raise ValueError('Mensaje no reconocido.')
             except (ValueError, ValidationError):
-                await ws.send_json({'type': 'error', 'message': 'La petición no es válida. Usad un mensaje de hasta 2000 caracteres o revisad los módulos.'})
+                await ws.send_json({'type': 'error', 'message': 'La petición no es válida. Usad un mensaje de hasta 2000 caracteres o revisad los módulos.', 'code': 'invalid_request'})
     except WebSocketDisconnect:
         pass
     finally:

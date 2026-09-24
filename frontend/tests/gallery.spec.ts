@@ -12,7 +12,7 @@ for(const width of [1440,390])for(const face of ['portrait2d','bust3d'])for(cons
   await page.screenshot({path:`../reports/m8-${route==='/'?'salon':'lab'}-${face}-${width===390?'mobile':'desktop'}.png`,fullPage:true});
   await page.click('#mic');await expect(page.locator('#state')).toHaveText('Cervantes está hablando');
   if(route==='/lab'){await expect(page.locator('#lat-3')).not.toHaveText('—');await page.screenshot({path:`../reports/m8-lab-${face}-${width===390?'mobile':'desktop'}-timeline.png`,fullPage:true});}
-  await page.click('#interrupt');await expect(page.locator('#state')).toHaveText('A vuestra escucha');
+  await page.click(route==='/'?'#mic':'#interrupt');await expect(page.locator('#state')).toHaveText('A vuestra escucha');
   expect(errors).toEqual([]);
  });
 }

@@ -1,6 +1,6 @@
 import {test,expect} from '@playwright/test';
 test('M7 mock voice, listening, speaking, interruption, and repeat turn',async({page})=>{
- await page.goto('/');await expect(page.locator('#state')).toHaveText('A vuestra escucha');
+ await page.goto('/lab');await expect(page.locator('#state')).toHaveText('A vuestra escucha');
  await page.click('#mic');await expect(page.locator('#state')).toHaveText('Os escucho…');
  await expect(page.locator('#state')).toHaveText('Cervantes está hablando');
  await expect(page.locator('#subtitle')).toContainText('Quijote');
@@ -32,4 +32,14 @@ test('browser recognition sends finalized speech through the pipeline',async({pa
  await page.goto('/lab');await expect(page.locator('#state')).toHaveText('A vuestra escucha');
  await page.selectOption('#stt','browser');await expect(page.locator('#hint')).toContainText('naturalidad');
  await page.click('#mic');await expect(page.locator('#transcript')).toContainText('Lepanto');await expect(page.locator('#state')).toHaveText('Cervantes está hablando');
+});
+test('WebGL unavailable falls back to the portrait',async({page})=>{
+ await page.addInitScript(()=>{const original=HTMLCanvasElement.prototype.getContext;HTMLCanvasElement.prototype.getContext=function(type:string,...args:any[]){if(type.startsWith('webgl'))return null;return original.apply(this,[type,...args] as any);} as any;});
+ await page.goto('/lab');await expect(page.locator('#state')).toHaveText('A vuestra escucha');
+ await page.selectOption('#face','bust3d');await expect(page.locator('#avatar svg')).toBeVisible();await expect(page.locator('#notice')).toContainText('Se ha abierto el retrato animado');
+});
+test('connection loss displays a recoverable Spanish error',async({page})=>{
+ await page.routeWebSocket('**/ws',socket=>socket.close());
+ await page.goto('/');await expect(page.locator('#notice')).toContainText('No se pudo conectar');
+ await expect(page.locator('#state')).toHaveText('Conexión interrumpida');
 });
