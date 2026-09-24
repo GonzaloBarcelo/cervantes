@@ -59,4 +59,8 @@ No hay aprobaciones funcionales pendientes. Las limitaciones de servicios reales
 ## Primera comprobación recomendada
 
 Abrir http://127.0.0.1:8000 y pulsar el único botón: escuchar los tonos mock y observar labios; pulsarlo otra vez detiene la respuesta. Después, rellenar localmente env.sh y ejecutar source env.sh, MOCK=0 ./run.sh y scripts/smoke_live.sh. Usar /lab para seleccionar voz/modelo, ver errores y contrastar latencias. Las claves no deben pegarse en conversaciones ni commits.
+
+## Publicación y estado final
+
+Rama feat/cervantes-vivo publicada en origin sin force push. Commit de implementación/documentación auditado: 2b1efca; el commit posterior solo registra esta evidencia. Arranque final con source env.sh &amp;&amp; ./run.sh confirmado: servidor en 127.0.0.1:8000, GET /api/health HTTP 200, módulos mock activos y proveedores reales marcados como missing_key. Árbol limpio tras los commits.
 </pre><p><a href="../index.html">Volver a la galería</a></p></main></html>

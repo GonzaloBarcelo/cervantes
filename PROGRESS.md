@@ -13,4 +13,4 @@ Fuente de verdad. Inicio: 2026-09-24. Cada hito se verifica antes del siguiente.
 - [x] M8 gallery.spec.ts 9/9: ambas rutas y caras a 1440/390 px, cambios de proveedores/voz y recuperación sin claves. Capturas móviles revisadas; reports/index.html generado con fichas de los 10 hitos.
 - [x] M9 Documentación y auditoría completas. Verificación final: 26 pytest + 26 Playwright aprobadas; 29 capturas. Minimalismo solicitado verificado en escritorio/móvil. reports/delivery-checks.txt confirma env vacío/ignorado y ejemplo ejecutado; smoke sin claves sale 2 sin llamadas. AUDIT.md detalla aceptación condicionada a prueba real con credenciales.
 
-Próxima acción del usuario: probar el botón en localhost; validar voz, micrófono/cámara y latencia reales con sus credenciales mediante scripts/smoke_live.sh. Entrega lista para commit final y push.
+Próxima acción del usuario: probar el botón en localhost; validar voz, micrófono/cámara y latencia reales con sus credenciales mediante scripts/smoke_live.sh. Entrega publicada en origin/feat/cervantes-vivo; servidor final disponible en localhost:8000 y HTTP 200 comprobado.
